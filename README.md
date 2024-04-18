@@ -20,6 +20,7 @@ that was set with `dotnet user-secrets`
 8. Now stop everything and open a terminal then navigate to the project's (not the solution's) folder
 9. Set the the follow environment variable
    - Using PowerShell: `$Env:CONNECTIONSTRINGS__DEFAULT = "Server=production-server;Database=production-db;Trusted_Connection=True;"`
+   - Using Bash: `export CONNECTIONSTRINGS__DEFAULT="Server=production-server;Database=production-db;Trusted_Connection=True;"`
 10. Finally run the application with `dotnet run` and note that in the previous URL the local connection
 string is displayed
 
@@ -27,7 +28,7 @@ To summarize:
 1. Set public defaults into `appsettings.json` (e.g. like default logging level, default temp directory, etc.)
 2. Set "sane" defaults into `appsettings.Development.json` which could serve as a sample config for newcomers to the project
 3. Use `dotnet user-secrets` to override settings in the above files for development on your own machine
-4. Override/set required settings with environment variables in different environments (production environment, GitHub Actions Workflow, AWS, etc.)
+4. Override/set required settings with environment variables in different environments (production environment, Docker, GitHub Actions Workflow, AWS, etc.)
 5. **Never put/commit usernames, API keys, passwords, etc. into VCS**
 
 Please also check `launchSettings.json`, that's where it's decided whether the app runs in
