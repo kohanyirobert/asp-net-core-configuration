@@ -6,16 +6,19 @@ namespace AspNetCoreConfiguration.Controllers
     [ApiController]
     public class ConfigController : ControllerBase
     {
+        private readonly ILogger<ConfigController> _logger;
         private readonly IConfiguration _configuration;
 
-        public ConfigController(IConfiguration configuration)
+        public ConfigController(ILogger<ConfigController> logger, IConfiguration configuration)
         {
+            _logger = logger;
             _configuration = configuration;
         }
         
         [HttpGet("env")]
         public ContentResult Env()
         {
+            _logger.LogDebug("Request received at: api/config/env");
             var html = $"""
             <ul>
                 <li><pre>Environment.GetEnvironmentVariable("ConnectionStrings__Default") = {Environment.GetEnvironmentVariable("ConnectionStrings__Default")}</pre></li>
