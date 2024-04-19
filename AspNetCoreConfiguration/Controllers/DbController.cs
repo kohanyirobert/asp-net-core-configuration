@@ -7,10 +7,10 @@ namespace AspNetCoreConfiguration.Controllers
     [ApiController]
     public class DbController : ControllerBase
     {
-        private readonly ILogger<ConfigController> _logger;
+        private readonly ILogger<DbController> _logger;
         private readonly IConfiguration _configuration;
 
-        public DbController(ILogger<ConfigController> logger, IConfiguration configuration)
+        public DbController(ILogger<DbController> logger, IConfiguration configuration)
         {
             _logger = logger;
             _configuration = configuration;
