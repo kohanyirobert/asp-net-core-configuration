@@ -19,7 +19,7 @@ namespace AspNetCoreConfiguration.Controllers
         [HttpGet("test")]
         public ContentResult Test()
         {
-            _logger.LogDebug("Request received at: api/config/test");
+            _logger.LogDebug("Request received at: api/db/test");
             using (var connection = new SqlConnection(_configuration.GetConnectionString("Default")))
             using (var command = new SqlCommand("SELECT 1", connection))
             {
